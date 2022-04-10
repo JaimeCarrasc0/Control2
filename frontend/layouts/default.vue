@@ -111,6 +111,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Dogs',
           to: '/dogs'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Usuarios',
+          to: '/users'
         }
       ],
       miniVariant: false,
