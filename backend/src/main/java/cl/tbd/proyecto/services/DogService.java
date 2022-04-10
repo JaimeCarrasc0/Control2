@@ -2,11 +2,13 @@ package cl.tbd.proyecto.services;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import cl.tbd.proyecto.repositories.DogRepository;
 import cl.tbd.proyecto.models.Dog;
 
+@CrossOrigin
 @RestController
 public class DogService {
     private final DogRepository dogRepository;
@@ -28,5 +30,10 @@ public class DogService {
             result += dog.getName() + "\n";
         }
         return "Tus perros son: " + result;
+    }
+
+    @GetMapping("/dogs")
+    public List<Dog> getDogs() {
+        return dogRepository.showDogs();
     }
 }
