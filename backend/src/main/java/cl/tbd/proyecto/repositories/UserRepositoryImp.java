@@ -33,11 +33,15 @@ public class UserRepositoryImp implements UserRepository {
     
     @Override
     public User createUser(User user){
-        final String insertQuery = "INSERT INTO users (name,password,fecha) " +
-                "VALUES (:nameU,:passwordU,:fechaU)";
+        final String maxIdQuery = "SELECT max(user_id) FROM users";
+
+        final String insertQuery = "INSERT INTO users (user_id, name,password,fecha) " +
+                "VALUES (:user_idU, :nameU,:passwordU,:fechaU)";
 
         try (Connection conn = sql2o.open()) {
-                int insertedId = (int) conn.createQuery(insertQuery, true) 
+            int maxId = conn.createQuery(maxIdQuery).executeScalar(Integer.class);
+                int insertedId = (int) conn.createQuery(insertQuery, true)
+                    .addParameter("user_idU", maxId + 1)
                     .addParameter("nameU", user.getName())
                     .addParameter("passwordU", user.getPassword())
                     .addParameter("fechaU", user.getFecha())
