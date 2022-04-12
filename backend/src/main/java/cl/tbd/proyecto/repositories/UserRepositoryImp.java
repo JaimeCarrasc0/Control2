@@ -49,4 +49,35 @@ public class UserRepositoryImp implements UserRepository {
             return null;
         }
     }
+
+    @Override
+    public User updateUser(User user){
+        final String insertQuery = "UPDATE users SET name = :nameU, password = :passwordU, fecha = :fechaU WHERE user_id = :id";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(insertQuery)
+                .addParameter("nameU", user.getName())
+                .addParameter("passwordU", user.getPassword())
+                .addParameter("fechaU", user.getFecha())
+                .addParameter("id", user.getUser_id())
+                .executeUpdate();
+            return user;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public Boolean deleteUser(Integer id){
+        final String insertQuery = "DELETE FROM users WHERE user_id = :id";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(insertQuery)
+                .addParameter("id", id)
+                .executeAndFetch(User.class);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }

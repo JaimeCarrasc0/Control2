@@ -11,6 +11,6 @@ public interface UserRepository {
     public List<User> getAllUsers();
     public User getUser(Integer id);
     public User createUser(User user);
-    /*public User updateUser(Integer id, String nombre, String password, Date fecha);
-    public Integer deleteVoluntario(Integer id);*/
+    public User updateUser(User user);
+    public Boolean deleteUser(Integer id);
 }
