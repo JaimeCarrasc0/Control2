@@ -23,7 +23,7 @@ export default {
   methods: {
     getData: async function () {
       try {
-        let response = await this.$axios.get("/users");
+        let response = await this.$axios.get("/user/all");
         this.items = response.data;
         console.log(response);
       } catch (error) {
