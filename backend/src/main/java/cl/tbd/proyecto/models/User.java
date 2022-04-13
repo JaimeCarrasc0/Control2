@@ -42,10 +42,13 @@ public class User {
         this.fecha = fecha;
     }
 
+<<<<<<< HEAD
     public String getMail(){return mail;}
 
     public void setMail(String mail) {
         this.mail=mail;
     }
+=======
+>>>>>>> 06498a4e851f4d555d110eb3228feefd3204fb94
 
 }
