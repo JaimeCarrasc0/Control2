@@ -7,6 +7,7 @@ public class User {
     private String name;
     private String password;
     private Date fecha;
+    private String mail;
 
 
     public Integer getUser_id() {
@@ -40,4 +41,11 @@ public class User {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    public String getMail(){return mail;}
+
+    public void setMail(String mail) {
+        this.mail=mail;
+    }
+
 }
