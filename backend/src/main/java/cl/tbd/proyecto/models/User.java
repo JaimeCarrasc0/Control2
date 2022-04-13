@@ -40,4 +40,6 @@ public class User {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+
 }
