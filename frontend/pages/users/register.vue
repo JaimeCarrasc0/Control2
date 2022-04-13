@@ -52,6 +52,7 @@
                             sm="6"
                             >
                             <v-text-field
+                                type="password"
                                 v-model="Pass"
                                 label="Contraseña"
                                 filled
@@ -63,6 +64,7 @@
                             sm="6"
                             >
                             <v-text-field
+                                type="password"
                                 v-model="Pass"
                                 label="Confirmar contraseña"
                                 filled
