@@ -3,7 +3,7 @@
         <v-col cols="12" sm="8" md="6">
             <v-card>
                 <v-card-title class="headline">
-                    Registrar usuario
+                    Editar usuario
                 </v-card-title>
 
 
@@ -36,7 +36,7 @@
                     <v-card-actions>
                         <v-spacer />
                         <v-btn color="primary" @click="send">
-                            Registrar
+                            Editar
                         </v-btn>
                     </v-card-actions>
 

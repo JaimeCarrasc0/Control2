@@ -35,8 +35,8 @@ public class UserRepositoryImp implements UserRepository {
     public User createUser(User user){
         final String maxIdQuery = "SELECT max(user_id) FROM users";
 
-        final String insertQuery = "INSERT INTO users (user_id, name,password,fecha) " +
-                "VALUES (:user_idU, :nameU,:passwordU,:fechaU)";
+        final String insertQuery = "INSERT INTO users (user_id, name,password) " +
+                "VALUES (:user_idU, :nameU,:passwordU)";
 
         try (Connection conn = sql2o.open()) {
             int maxId = conn.createQuery(maxIdQuery).executeScalar(Integer.class);
@@ -44,7 +44,6 @@ public class UserRepositoryImp implements UserRepository {
                     .addParameter("user_idU", maxId + 1)
                     .addParameter("nameU", user.getName())
                     .addParameter("passwordU", user.getPassword())
-                    .addParameter("fechaU", user.getFecha())
                     .executeUpdate().getKey();
                 user.setUser_id(insertedId);
             return user;
@@ -56,12 +55,11 @@ public class UserRepositoryImp implements UserRepository {
 
     @Override
     public User updateUser(User user){
-        final String insertQuery = "UPDATE users SET name = :nameU, password = :passwordU, fecha = :fechaU WHERE user_id = :id";
+        final String insertQuery = "UPDATE users SET name = :nameU, password = :passwordU WHERE user_id = :id";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(insertQuery)
                 .addParameter("nameU", user.getName())
                 .addParameter("passwordU", user.getPassword())
-                .addParameter("fechaU", user.getFecha())
                 .addParameter("id", user.getUser_id())
                 .executeUpdate();
             return user;

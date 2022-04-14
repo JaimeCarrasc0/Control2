@@ -1,12 +1,9 @@
 package cl.tbd.proyecto.models;
 
-import java.sql.Date;
-
 public class User {
     private Integer user_id;
     private String name;
     private String password;
-    private Date fecha;
 
 
     public Integer getUser_id() {
@@ -31,14 +28,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-    
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
 

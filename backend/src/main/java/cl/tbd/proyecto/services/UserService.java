@@ -48,9 +48,6 @@ public class UserService {
             if(newUser.getPassword() == null){
                 newUser.setPassword(user.getPassword());
             }
-            if(newUser.getFecha() == null){
-                newUser.setFecha(user.getFecha());
-            }
         }
         User result = userRepository.updateUser(newUser);
         if(result == null){
