@@ -7,8 +7,6 @@ public class User {
     private Integer user_id;
     private String name;
     private String password;
-    private Date fecha;
-    private String mail;
 
     public Integer getUser_id() {
         return user_id;

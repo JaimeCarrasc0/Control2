@@ -48,7 +48,7 @@
 			send: function (id) {
                 try {
                     let ruta = "/user/delete/" + id;
-                    let result = this.$axios.delete(ruta);
+                    let result = await this.$axios.delete(ruta);
                     let user = result.data;
                     console.log("Usuario eliminado con exito")
 					window.location.reload();
