@@ -5,13 +5,13 @@
 			<li v-for="item in items" :key="item.user_id">
 				{{ item.name }}
 				<v-row align="center" justify="space-around">
-					<v-btn tile color="success" :to="`/users/update/${item.user_id}`">
+					<v-btn tile color="success" :to="`/users/${item.user_id}/update`">
 						<v-icon left>
 							mdi-pencil
 						</v-icon>
 						Editar
 					</v-btn>
-					<v-btn tile color="success" to="/index">
+					<v-btn tile color="success" @click="send(item.user_id)">
 						<v-icon left>
 							mdi-pencil
 						</v-icon>
@@ -45,6 +45,17 @@
 					console.log("error", error);
 				}
 			},
+			send: function (id) {
+                try {
+                    let ruta = "/user/delete/" + id;
+                    let result = this.$axios.delete(ruta);
+                    let user = result.data;
+                    console.log("Usuario eliminado con exito")
+					window.location.reload();
+                } catch (error) {
+                    console.log('error', error)
+                }
+            }
 			
 		},
 		created: function () {

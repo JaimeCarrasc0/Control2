@@ -57,7 +57,8 @@
         methods: {
             send: async function () {
                 try {
-                    let result = await this.$axios.post('/user/create', this.newUser);
+                    let ruta = "/user/update/" + this.$route.params.id;
+                    let result = await this.$axios.put(ruta, this.newUser);
                     let user = result.data;
                     console.log("Usuario creado con exito")
                 } catch (error) {

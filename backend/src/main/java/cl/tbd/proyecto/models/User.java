@@ -1,15 +1,14 @@
 package cl.tbd.proyecto.models;
 
+import java.sql.Date;
+
+
 public class User {
     private Integer user_id;
     private String name;
     private String password;
-<<<<<<< HEAD
-=======
     private Date fecha;
     private String mail;
->>>>>>> c4e537e39748ed736d4c53eb5d9fefc85fb36a3d
-
 
     public Integer getUser_id() {
         return user_id;
@@ -34,24 +33,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-<<<<<<< HEAD
-=======
-    
-    public Date getFecha() {
-        return fecha;
-    }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-    
-    public String getMail(){
-        return mail;
-    }
->>>>>>> c4e537e39748ed736d4c53eb5d9fefc85fb36a3d
-
-    public void setMail(String mail) {
-        this.mail=mail;
-    }
 
 }
